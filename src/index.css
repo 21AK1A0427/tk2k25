@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/* Custom base styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-light text-dark font-sans antialiased;
+  }
+}
+
+/* Custom components */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors;
+  }
+  .btn-outline {
+    @apply border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary/10 transition-colors;
+  }
+}
+
+/* Custom Animations for Hero Section */
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: left center;
+  }
+  50% {
+    background-position: right center;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-gradient-x {
+  @apply bg-gradient-to-r from-primary to-secondary;
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease-in-out infinite;
+}
+.animate-fade-in {
+  animation: fadeIn 1s both;
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+/* Custom Utilities for 3D Effect and Shadows */
+@layer utilities {
+  .perspective-3d {
+    perspective: 1200px;
+  }
+  .shadow-3xl {
+    box-shadow: 0 10px 40px 0 rgba(80, 0, 120, 0.25), 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+  }
+  .animate-float-slow {
+    animation: float 7s ease-in-out infinite;
+  }
+  .animate-float-slower {
+    animation: float 12s ease-in-out infinite;
+  }
+  .animate-float-fast {
+    animation: float 3s ease-in-out infinite;
+  }
+}
