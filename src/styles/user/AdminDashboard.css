@@ -1,0 +1,540 @@
+/* AdminDashboard.css */
+html, body, #root, .admin-dashboard-container {
+  height: 100%;
+  margin: 0;
+  background-color: #0f0f0f; /* Darkest black for overall page background */
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-dashboard-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent scrollbars on the container itself */
+}
+
+.admin-sidebar {
+  width: 250px; /* Initial width, will be adjustable */
+  background-color: #1a1a1a; /* Dark sidebar */
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full height */
+  position: fixed; /* Fixed position */
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  border-right: 1px solid #00ffff; /* Cyan border */
+  box-shadow: 2px 0 15px rgba(0, 255, 255, 0.1);
+}
+
+/* Sidebar Header for Toggle Button */
+.admin-sidebar-header {
+  display: flex;
+  justify-content: flex-end; /* Positions toggle button to the right */
+  padding: 10px 15px; /* Padding around the button */
+  height: 50px; /* Fixed height for the header area */
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.sidebar-toggle-button {
+  background: none;
+  border: none;
+  color: #00ffff; /* Cyan icon color */
+  font-size: 1.5em; /* Adjust icon size */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 5px; /* Add some padding to make it easier to click */
+}
+
+.sidebar-toggle-button:hover {
+  color: #ffffff; /* Brighter on hover */
+}
+
+.admin-logo {
+  /* Logo will be moved to header, this can be removed or repurposed if needed */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.admin-logo img {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.admin-logo span {
+  color: #00ffff;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.admin-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-nav ul li a {
+  display: flex; /* Use flex for icon and text alignment */
+  align-items: center;
+  padding: 15px 20px;
+  color: #c0c0c0; /* Lighter grey for nav links */
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease, letter-spacing 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.admin-nav ul li a .nav-icon {
+  margin-right: 15px;
+  width: 20px; /* Fixed width for icon container */
+  text-align: center;
+  color: #00ffff; /* Cyan icon color */
+  transition: margin 0.3s ease; /* Smooth transition for margin */
+}
+
+.admin-nav ul li a .nav-text {
+  transition: opacity 0.3s ease, display 0.3s ease; /* Smooth transition for text */
+  white-space: nowrap; /* Prevent text wrapping */
+  opacity: 1;
+}
+
+.admin-nav ul li a:hover,
+.admin-nav ul li a.active {
+  background-color: rgba(0, 255, 255, 0.1); /* Subtle cyan highlight */
+  color: #ffffff; /* White text on hover/active */
+  padding-left: 25px; /* Indent on hover/active */
+  border-left: 3px solid #00ffff; /* Cyan active border */
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+}
+
+.sidebar-resizer {
+  width: 5px;
+  height: 100%;
+  background-color: #007777; /* Darker cyan for resizer */
+  cursor: col-resize;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1001;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-resizer:hover {
+  background-color: #00ffff; /* Brighter cyan on hover */
+}
+
+.admin-main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* To position header, content, and footer */
+  height: 100vh; /* Full viewport height */
+  margin-left: 250px; /* Initial margin, matches sidebar width */
+  background-color: #111; /* Very dark content background */
+  overflow-y: auto; /* Allow scrolling only for the content area */
+}
+
+.admin-header {
+  background-color: #1a1a1a; /* Dark header */
+  color: #e0e0e0;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  border-bottom: 1px solid #003333; /* Dark cyan border */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  position: sticky; /* Make header sticky */
+  top: 0;
+  z-index: 999;
+}
+
+.header-logo img {
+  height: 40px;
+  vertical-align: middle;
+  display: block; /* Prevents extra space below if it was inline */
+}
+
+/* Remove styles from old .header-logo span if they are no longer needed or adjust if logo itself needs text */
+.header-logo span {
+  /* Styles for any text directly in .header-logo, if any, can remain or be removed */
+  /* For example, if there was other text next to the logo image besides "Admin Panel" */
+  /* If .header-logo now ONLY contains the image, this rule might be redundant for Admin Panel text */
+}
+
+.header-title {
+  flex-grow: 1; /* Allows the title to take up available space */
+  text-align: center; /* Centers the span within this div */
+}
+
+.header-title span {
+  color: #00ffff; /* Copied from original .header-logo span */
+  font-size: 1.5em; /* Copied from original .header-logo span */
+  font-weight: bold; /* Copied from original .header-logo span */
+  vertical-align: middle; /* Copied from original .header-logo span */
+  /* margin-left: 10px; /* Removed as centering is handled by parent */
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+}
+
+.header-icons .icon-button {
+  color: #00ffff;
+  background: none;
+  border: none;
+  font-size: 1.5em; /* Adjust icon size */
+  margin-left: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.header-icons .icon-button:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.admin-content-area {
+  flex-grow: 1; /* Allows content to fill space between header and footer */
+  padding: 25px;
+  overflow-y: auto; /* Scroll for content area if it overflows */
+}
+
+.dashboard-welcome h2 {
+  color: #00ffff;
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.dashboard-welcome p {
+  color: #c0c0c0;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.admin-footer {
+  background-color: #1a1a1a; /* Dark footer */
+  color: #a0a0a0;
+  text-align: center; /* Center the text content */
+  padding: 15px 25px;
+  border-top: 1px solid #003333; /* Dark cyan border */
+  /* display: flex; */ /* Remove flex if you want simple text-align center */
+  /* justify-content: space-between; */ /* Remove if not needed */
+  /* align-items: center; */ /* Remove if not needed */
+  /* padding: 10px 25px; */ /* Adjusted padding - can revert if needed */
+}
+
+/* Ensure the main content area correctly calculates its width considering the fixed sidebar */
+.admin-main-content {
+  /* ... other styles ... */
+  width: calc(100% - 250px); /* Default, will be updated by JS */
+}
+
+/* Placeholder icons if not using a library */
+.icon-home::before { content: "🏠"; }
+.icon-events::before { content: "📅"; }
+.icon-logout::before { content: "🚪"; }
+.icon-bell::before { content: "🔔"; }
+.icon-chat::before { content: "💬"; }
+.icon-close::before { content: "✕"; }
+
+/* Logout Modal Styles */
+.logout-modal-overlay {
+  position: fixed; /* Crucial for overlay */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75); /* Darker semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050; /* Ensure it's above other content */
+  opacity: 0; /* Start hidden for transition */
+  visibility: hidden; /* Start hidden for transition */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.logout-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.logout-modal-content {
+  background-color: #2a2a2a; /* Dark background for the modal card */
+  color: #e0e0e0;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 255, 255, 0.2), 0 0 15px rgba(0, 255, 255, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 400px; /* Max width for the modal */
+  border: 1px solid #007a8a; /* Sci-fi border */
+  transform: scale(0.9); /* Start slightly smaller for transition */
+  transition: transform 0.3s ease;
+}
+
+.logout-modal-overlay.active .logout-modal-content {
+  transform: scale(1);
+}
+
+.logout-modal-content h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  color: #00e5ff; /* Bright cyan title */
+  font-family: 'Orbitron', sans-serif; /* Sci-fi font */
+}
+
+.logout-modal-content p {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.logout-modal-actions {
+  display: flex;
+  justify-content: space-around; /* Evenly space buttons */
+  gap: 15px; /* Space between buttons */
+}
+
+.logout-modal-actions .sci-fi-button {
+  flex-grow: 1; /* Allow buttons to grow equally */
+  padding: 12px 15px !important; /* Ensure padding */
+  font-size: 1rem !important; /* Ensure font size */
+}
+
+/* Ensure sci-fi button styles are defined or imported if they are in another file */
+/* Example for .confirm-logout-button and .cancel-logout-button if not using general .sci-fi-button */
+.confirm-logout-button.sci-fi-button {
+  /* background: linear-gradient(145deg, #007777, #005555); */
+  /* Specific styles if needed, or rely on .sci-fi-button */
+}
+
+.cancel-logout-button.sci-fi-button {
+  background: linear-gradient(145deg, #555, #333); /* Greyish gradient for cancel */
+  border-color: #888;
+}
+
+.cancel-logout-button.sci-fi-button:hover {
+  background: linear-gradient(145deg, #666, #444);
+  border-color: #aaa;
+  color: #fff;
+}
+
+/* Ensure the .active class is toggled on .logout-modal-overlay in AdminDashboard.jsx */
+/* when showLogoutModal state changes. */
+/* For example, in the LogoutModal component: */
+/* <div className={`logout-modal-overlay ${isOpen ? 'active' : ''}`}> */
+
+/* Footer logout button */
+.footer-logout-button {
+  display: none; /* Hide the footer logout button as it's moved to sidebar */
+}
+
+/* Styles for sidebar footer and logout button */
+.admin-sidebar-footer {
+  margin-top: auto; /* Pushes the footer to the bottom */
+  padding: 10px 0; /* Padding around the logout button container */
+  border-top: 1px solid #003333; /* Separator line */
+}
+
+.sidebar-logout-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 20px; /* Consistent padding with nav links */
+  background: none;
+  border: none;
+  color: #c0c0c0; /* Consistent text color */
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.1em; /* Consistent font size */
+  transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-logout-button .nav-icon {
+  margin-right: 15px;
+  width: 20px;
+  text-align: center;
+  color: #00ffff;
+}
+
+.sidebar-logout-button .nav-text {
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-logout-button:hover {
+  background-color: rgba(255, 70, 70, 0.1); /* Reddish highlight for logout */
+  color: #ff6b6b; /* Lighter red text on hover */
+  padding-left: 25px;
+  border-left: 3px solid #ff6b6b;
+}
+
+.admin-sidebar.collapsed .sidebar-logout-button .nav-text {
+  opacity: 0;
+  display: none;
+}
+
+.admin-sidebar.collapsed .sidebar-logout-button {
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.admin-sidebar.collapsed .sidebar-logout-button .nav-icon {
+  margin-right: 0;
+}
+
+.admin-main-content {
+  /* ...existing styles... */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .admin-sidebar {
+    width: 200px; /* Slightly reduce sidebar width */
+  }
+  .admin-main-content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+  .header-logo span {
+    font-size: 1.3em;
+  }
+  .header-icons .icon-button {
+    font-size: 1.3em;
+    margin-left: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    /* Default state for small screens if not manually collapsed */
+    /* width: 60px; /* Collapse sidebar to icon-only or very narrow */
+    /* The explicit .collapsed class will handle the 60px width */
+  }
+  .admin-sidebar:not(.collapsed) .admin-nav ul li a .nav-text {
+    /* If sidebar is not collapsed by button, but screen is small, you might still want to hide text */
+    /* display: none; */ /* Commenting out to allow expanded view on mobile if user clicks expand */
+  }
+  .admin-sidebar .admin-nav ul li a {
+    /* padding: 15px 10px; */ /* Adjust padding for smaller sidebar */
+    /* justify-content: center; */ /* Center icon */
+  }
+  /* .admin-sidebar .admin-nav ul li a .nav-text { */
+    /* display: none; /* Hide text in collapsed sidebar */
+  /* } */
+  .admin-sidebar .admin-nav ul li a .nav-icon {
+    /* margin-right: 0; */
+  }
+  .admin-header {
+    padding: 10px 15px;
+  }
+  .header-logo img {
+    height: 30px;
+  }
+  .header-title span {
+    font-size: 1.4em; /* Adjust title font size for tablets */
+  }
+  .header-icons .icon-button {
+    font-size: 1.4em;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-sidebar {
+    /* Optional: could hide sidebar completely and use a toggle button in header */
+    /* For now, keeping it very narrow */
+    width: 50px;
+  }
+  .admin-main-content {
+    margin-left: 50px;
+    width: calc(100% - 50px);
+  }
+  .admin-header {
+    flex-direction: column;
+    align-items: center; /* Center items when stacked */
+    padding: 10px;
+  }
+  .header-logo, .header-title, .header-icons {
+    width: 100%; /* Ensure each section takes full width */
+  }
+  .header-logo {
+    text-align: center; /* Center the logo image */
+    margin-bottom: 8px; /* Space below logo */
+  }
+  .header-title {
+    text-align: center; /* Ensure title text is centered */
+    margin-bottom: 8px; /* Space below title */
+  }
+  .header-title span {
+    font-size: 1.3em; /* Slightly smaller font for mobile */
+  }
+  .header-icons {
+    width: 100%;
+    justify-content: space-around; /* Distribute icons if header stacks */
+    margin-top: 5px; /* Space above icons */
+  }
+  .header-icons .icon-button {
+    margin-left: 5px;
+    font-size: 1.1em;
+  }
+  .dashboard-welcome h2 {
+    font-size: 1.5em;
+  }
+  .dashboard-welcome p {
+    font-size: 1em;
+  }
+  .logout-modal-actions {
+    flex-direction: column;
+  }
+  .logout-modal-actions .sci-fi-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .logout-modal-actions .sci-fi-button:last-child {
+    margin-bottom: 0;
+  }
+  .admin-footer {
+    flex-direction: column;
+    font-size: 0.8em;
+  }
+  .footer-logout-button {
+    margin-top: 5px;
+  }
+}
+
+/* Styles for when the sidebar is explicitly collapsed via button */
+.admin-sidebar.collapsed .admin-nav .nav-text {
+  opacity: 0;
+  display: none; /* Hide text when collapsed */
+}
+
+.admin-sidebar.collapsed .admin-nav ul li a {
+  justify-content: center; /* Center the icon */
+  padding-left: 10px; /* Adjust padding for icon-only view */
+  padding-right: 10px;
+}
+
+.admin-sidebar.collapsed .admin-nav ul li a .nav-icon {
+  margin-right: 0; /* No margin when text is hidden */
+}
+
+.admin-sidebar.collapsed .sidebar-resizer {
+  display: none; /* Hide resizer when collapsed */
+}
+
+/* Ensure main content adjusts when sidebar is collapsed via class */
+.admin-dashboard-container.sidebar-collapsed .admin-main-content {
+  margin-left: 60px; /* Must match collapsed sidebar width */
+  width: calc(100% - 60px);
+}
+

@@ -1,0 +1,340 @@
+/* About Sections Parallax & Alternating Layout */
+.about-detail-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  padding: 4vw 0 4vw 0;
+  opacity: 0;
+  transform: translateY(60px) scale(0.98);
+  transition: opacity 0.9s cubic-bezier(.4,1.2,.4,1), transform 0.9s cubic-bezier(.4,1.2,.4,1);
+  position: relative;
+  z-index: 1;
+}
+.about-detail-section.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.about-detail-section.alt {
+  flex-direction: row-reverse;
+}
+.about-detail-img {
+  flex: 0 0 340px;
+  max-width: 340px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3vw;
+  z-index: 2;
+}
+.about-detail-img img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 18px;
+  box-shadow: 0 0 2px #00336622;
+  background: #10131a;
+  border: 2px solid #003366;
+  transition: box-shadow 0.3s, border 0.3s, transform 0.7s cubic-bezier(.4,1.4,.6,1);
+  transform: perspective(700px) rotateY(-25deg);
+  /* Default: open to left */
+}
+.about-detail-section.alt .about-detail-img img {
+  transform: perspective(700px) rotateY(25deg);
+  /* Alternate: open to right */
+}
+.about-detail-img img:hover {
+  box-shadow: 0 0 4px #00eaff33;
+  border: 2px solid #00eaff;
+  transform: perspective(700px) rotateY(0deg) scale(1.04);
+}
+.about-detail-content {
+  flex: 1 1 0;
+  min-width: 260px;
+  max-width: 700px;
+  color: #eafcff;
+  font-size: 1.18rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #10131a;
+  border-radius: 18px;
+  box-shadow: 0 0 2px #00336622;
+  padding: 2.2vw 2vw 2vw 2vw;
+  margin: 0 2vw;
+  z-index: 2;
+}
+.about-detail-content h2 {
+  color: #00eaff;
+  font-size: 2.1rem;
+  font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: 2px;
+  text-shadow: none;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  filter: none;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+/* Sci-fi animated underline for h2 */
+.about-detail-content h2::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin-top: 0.5rem;
+  background: #003366;
+  border-radius: 2px;
+  box-shadow: none;
+  animation: none;
+}
+@keyframes sciFiUnderline {
+  0% { width: 60px; opacity: 1; }
+  100% { width: 120px; opacity: 0.7; }
+}
+.about-detail-vertical-btn {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.7em 1.6em;
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  color: #00eaff;
+  background: #10131a;
+  border: 2px solid #003366;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.about-detail-vertical-btn:hover {
+  background: #003366;
+  color: #eafcff;
+  border: 2px solid #00eaff;
+}
+
+/* Parallax effect for about sections */
+.about-section-parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Normal font content (not in cards) */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+  padding: 6vw 0 6vw 0;
+  position: relative;
+  background: transparent;
+}
+.about-section.alt {
+  flex-direction: row-reverse;
+}
+.about-section-content {
+  flex: 1 1 0;
+  max-width: 800px;
+  color: #eafcff;
+  font-size: 1.18rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  padding: 0 2vw;
+  text-align: left;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+.about-section-content h2 {
+  color: #00eaff;
+  font-size: 2.3rem;
+  font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+  font-weight: 900;
+  margin-bottom: 1.2rem;
+  letter-spacing: 2px;
+  text-shadow: none;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  filter: none;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+/* Sci-fi animated underline for h2 */
+.about-section-content h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, #00eaff 0%, #0a1428 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 12px #00eaff99;
+  animation: sciFiUnderline 2.2s infinite alternate;
+}
+@keyframes sciFiUnderline {
+  0% { width: 60px; opacity: 1; }
+  100% { width: 120px; opacity: 0.7; }
+}
+
+/* Floating image animation */
+.about-section-img {
+  flex: 0 0 340px;
+  max-width: 340px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3vw;
+  z-index: 2;
+  animation: floatY 3.5s ease-in-out infinite alternate, floatX 7s ease-in-out infinite alternate;
+  transition: transform 0.5s cubic-bezier(.4,1.2,.4,1);
+}
+.about-section-img {
+  flex: 0 0 340px;
+  max-width: 340px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3vw;
+  z-index: 2;
+  /* Bend the image container towards its respective side */
+  transform: perspective(700px) rotateY(-12deg);
+  transition: transform 0.7s cubic-bezier(.4,1.4,.6,1), box-shadow 0.3s;
+  box-shadow: none !important;
+  filter: none !important;
+}
+.about-section.alt .about-section-img {
+  transform: perspective(700px) rotateY(12deg);
+}
+.about-section-img:hover,
+.about-section.alt .about-section-img:hover {
+  box-shadow: none !important;
+}
+.about-section-img img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 22px;
+  box-shadow: none !important;
+  background: #10131a;
+  border: 2px solid #003366;
+  transition: box-shadow 0.3s, border 0.3s, transform 0.7s cubic-bezier(.4,1.4,.6,1);
+}
+.about-section-img img:hover {
+  box-shadow: none !important;
+  border: 2px solid #00eaff;
+  transform: scale(1.04);
+}
+@keyframes floatY {
+  0% { transform: translateY(0px) scale(1.01); }
+  100% { transform: translateY(-24px) scale(1.04); }
+}
+@keyframes floatX {
+  0% { transform: translateX(0px); }
+  100% { transform: translateX(18px); }
+}
+
+/* Parallax effect for images on scroll */
+.about-section-img {
+  will-change: transform;
+}
+
+/* Gradient background for the whole about area */
+.about-gradient-bg {
+  background: #05070d !important;
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Remove footer animation */
+.footer-wave-grid {
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-detail-section, .about-detail-section.alt {
+    flex-direction: column !important;
+    min-height: 320px;
+    padding: 8vw 0;
+  }
+  .about-detail-img, .about-detail-content, .about-section-img, .about-section-content {
+    margin: 1vw 0;
+    max-width: 98vw;
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* --- Enhanced Mobile Responsiveness for About Sections --- */
+@media (max-width: 600px) {
+  .about-section, .about-section.alt {
+    flex-direction: column !important;
+    min-height: 0;
+    padding: 5vw 0 5vw 0;
+  }
+  .about-section-img {
+    flex: 0 0 160px;
+    max-width: 160px;
+    min-width: 100px;
+    margin: 0 0 2vw 0;
+    animation: none;
+    transform: perspective(500px) rotateY(-8deg);
+  }
+  .about-section.alt .about-section-img {
+    transform: perspective(500px) rotateY(8deg);
+  }
+  .about-section-img img {
+    max-width: 140px;
+    border-radius: 14px;
+  }
+  .about-section-content {
+    max-width: 98vw;
+    padding: 2vw 4vw 3vw 4vw;
+    font-size: 1rem;
+  }
+  .about-section-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+  }
+  .about-section-content ul {
+    margin-left: 0.8em;
+    font-size: 0.98rem;
+  }
+}
+@media (max-width: 480px) {
+  .about-section-img {
+    flex: 0 0 110px;
+    max-width: 110px;
+    min-width: 70px;
+    margin: 0 0 2vw 0;
+  }
+  .about-section-img img {
+    max-width: 90px;
+    border-radius: 10px;
+  }
+  .about-section-content {
+    padding: 2vw 2vw 3vw 2vw;
+    font-size: 0.95rem;
+  }
+  .about-section-content h2 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+body, html, #root, .home-page {
+  background: #05070d !important;
+  background-color: #05070d !important;
+}

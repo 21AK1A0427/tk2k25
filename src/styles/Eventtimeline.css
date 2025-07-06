@@ -1,0 +1,345 @@
+.timeline-container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+  
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .timeline-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #2ecc71, #f1c40f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+  }
+  
+  .timeline-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .control-btn {
+    background: rgba(46, 204, 113, 0.1);
+    border: 1px solid #2ecc71;
+    color: #2ecc71;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .control-btn:hover {
+    background: #2ecc71;
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  .play-btn {
+    font-size: 1.2rem;
+  }
+  
+  .timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 3rem;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(46, 204, 113, 0.3);
+    z-index: 1;
+  }
+  
+  .timeline-event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+    flex: 1;
+  }
+  
+  .event-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-event.active .event-icon {
+    transform: scale(1.3);
+    color: #f1c40f;
+  }
+  
+  .event-date {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-event.active .event-date {
+    opacity: 1;
+    font-weight: 600;
+    color: #2ecc71;
+  }
+  
+  .event-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(46, 204, 113, 0.3);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-event.active .event-dot {
+    background: #2ecc71;
+    transform: scale(1.3);
+    border-color: #f1c40f;
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+  }
+  
+  .event-line {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    height: 3px;
+    background: transparent;
+    z-index: -1;
+  }
+  
+  .timeline-event.active .event-line {
+    background: linear-gradient(90deg, #2ecc71, transparent);
+  }
+  
+  .event-details {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border-left: 3px solid #2ecc71;
+  }
+  
+  .event-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #f1c40f;
+  }
+  
+  .event-info {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .event-description {
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .drone-animation {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    margin-top: 2rem;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .drone-path-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .drone {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+  
+  .drone-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #2ecc71;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.7);
+    transform-style: preserve-3d;
+  }
+  
+  .drone-rotor {
+    position: absolute;
+    width: 18px;
+    height: 4px;
+    background: #f1c40f;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(241, 196, 15, 0.7);
+  }
+  
+  .drone-rotor-front {
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: rotorSpin 0.3s linear infinite;
+  }
+  
+  .drone-rotor-back {
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: rotorSpin 0.3s linear infinite reverse;
+  }
+  
+  .drone-rotor-left {
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%) rotate(90deg);
+    animation: rotorSpin 0.3s linear infinite;
+  }
+  
+  .drone-rotor-right {
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%) rotate(90deg);
+    animation: rotorSpin 0.3s linear infinite reverse;
+  }
+  
+  .drone-camera {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #555;
+  }
+  
+  .drone-light {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.7);
+    animation: lightPulse 1s infinite alternate;
+  }
+  
+  @keyframes rotorSpin {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+  }
+  
+  @keyframes lightPulse {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+  
+  .event-progress {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(46, 204, 113, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+  
+  .progress-dot.active {
+    background: #2ecc71;
+    transform: scale(1.3);
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+  }
+  
+  .progress-dot:hover {
+    background: #f1c40f;
+  }
+  
+  @media (max-width: 768px) {
+    .timeline-container {
+      padding: 1.5rem;
+    }
+    
+    .timeline-header h3 {
+      font-size: 1.3rem;
+    }
+    
+    .control-btn {
+      width: 35px;
+      height: 35px;
+    }
+    
+    .event-icon {
+      font-size: 1.2rem;
+    }
+    
+    .event-date {
+      font-size: 0.8rem;
+    }
+    
+    .drone-animation {
+      height: 150px;
+    }
+    
+    .drone {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .drone-rotor {
+      width: 15px;
+      height: 3px;
+    }
+  }

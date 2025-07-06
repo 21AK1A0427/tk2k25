@@ -1,0 +1,164 @@
+.visitor-counter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: none;
+  border: none;
+  overflow: hidden;
+  transition: none;
+  max-width: auto;
+  margin: 0;
+}
+
+.counter-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.counter-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counter-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2ecc71;
+}
+
+.counter-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.counter-loading {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+.counter-sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.visitor-counter.pulse .sparkle {
+  animation: sparkle 1s ease-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes sparkle {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  10% {
+    opacity: 1;
+    width: 6px;
+    height: 6px;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+    width: 2px;
+    height: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .visitor-counter {
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+    max-width: 260px;
+  }
+  
+  .counter-value {
+    font-size: 1.5rem;
+  }
+  
+  .counter-label {
+    font-size: 0.75rem;
+  }
+}
+.counter-error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+}
+
+/* Ensure CORS-related elements are visible */
+.counter-loading, .counter-error {
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Error and Loading States */
+.counter-error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.counter-loading {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Make sure container has consistent height */
+.visitor-counter {
+  min-height: 5px;
+  display: flex;
+  align-items: center;
+}
+.retry-button {
+  margin-left: 10px;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retry-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.counter-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

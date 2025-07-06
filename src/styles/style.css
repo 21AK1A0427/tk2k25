@@ -1880,7 +1880,9 @@ footer .social-links li + li {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Specific transitions */
+  will-change: opacity; /* Hint for opacity transition */
   z-index: 1000;
 }
 
@@ -1893,17 +1895,20 @@ footer .social-links li + li {
   display: flex;
   width: 100%;
   max-width: 1200px;
-  background: rgba(10, 20, 30, 0.8);
-  border: 1px solid rgba(0, 170, 255, 0.2);
+  background: rgba(10, 20, 30,  0.8); /* This will be overridden by a later one in the original CSS */
+  border: 1px solid rgba(0, 170, 255, 0.2); /* This will be overridden by a later one */
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 30px rgba(0, 170, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.1); /* This will be overridden by a later one */
   border: 2px solid #00bfff;
   box-shadow: 0 0 10px 2px #00bfff, 0 0 32px 4px #0af inset;
   background: rgba(20, 30, 50, 0.45);
   backdrop-filter: blur(18px) saturate(1.2);
   -webkit-backdrop-filter: blur(18px) saturate(1.2);
   /* Softer sci-fi blue border and glassmorphism effect for menu modal */
+  /* Additions for stability */
+  backface-visibility: hidden;
+  transform: translateZ(0); /* Promotes to its own layer */
 }
 
 .menu-text {
@@ -1955,9 +1960,13 @@ footer .social-links li + li {
   border: 1px solid rgba(0, 170, 255, 0.3);
   background: rgba(0, 20, 40, 0.3);
   backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
+  transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Specific transitions */
   overflow: hidden;
   border-radius: 5px;
+  transform: translateY(0); /* Base transform from previous fix */
+  backface-visibility: hidden; /* Improve rendering from previous fix */
+  will-change: transform, box-shadow, background, color; /* Hint for optimizations from previous fix */
 }
 
 .sci-fi-menu-btn i {
@@ -1970,7 +1979,7 @@ footer .social-links li + li {
   color: #fff;
   background: rgba(0, 100, 200, 0.3);
   box-shadow: 0 0 20px rgba(0, 170, 255, 0.4);
-  transform: translateY(-3px);
+  /* transform: translateY(-3px); */ /* Removed to prevent shaking */
 }
 
 .sci-fi-btn-glow {
@@ -1981,7 +1990,9 @@ footer .social-links li + li {
   border-radius: 50%;
   filter: blur(5px);
   opacity: 0;
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Made specific */
+  will-change: opacity, transform; /* Added for performance */
   right: 10px;
 }
 
@@ -2241,4 +2252,23 @@ footer .social-links li + li {
     border-radius: 1.5rem;
     border: 1px solid rgba(0,180,255,0.18);
   }
+}
+
+/* Custom rotation animation for social icons */
+@keyframes rotate-360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hover\:rotate-360:hover {
+  animation: rotate-360 0.6s ease-in-out;
+}
+
+/* Additional smooth rotation for icon images */
+.group-hover\:rotate-12:hover {
+  transform: rotate(12deg);
 }

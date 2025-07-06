@@ -1,0 +1,30 @@
+.playground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.playground-header {
+  /* Styles for the big header section */
+}
+
+.playground-daily-challenge {
+  /* Styles for the daily challenge section */
+}
+
+.playground-games {
+  /* Styles for the games section */
+}
+
+.playground-leader-scores {
+  /* Styles for the leader scores section */
+}
+
+.playground-daily-missions {
+  /* Styles for the daily missions section */
+}
+
+.playground-footer {
+  /* Styles for the footer section */
+}

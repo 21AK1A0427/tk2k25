@@ -122,7 +122,7 @@ const MatterBackground = () => {
         friction: 0,
         frictionAir: 0,
         render: {
-          fillStyle: r > 0.3 ? '#334443' : '#222222',
+          fillStyle: r > 0.3 ? '27292d' : '#111111',
           strokeStyle: '#111111',
           lineWidth: 4,
         },
@@ -131,14 +131,14 @@ const MatterBackground = () => {
       followerBodies.push(mediumCircle);
       followerVelocities.push({ x: (Common.random() - 0.5) * 1.2, y: (Common.random() - 0.5) * 1.2 });
       // Create large circle (make the first one the leader)
-      const largeCircle = Bodies.circle(x, y, Common.random(20, 40), {
+      const largeCircle = Bodies.circle(x, y, !leaderBall ? 15 : Common.random(20, 40), {
         mass: 2,
         friction: 0.6,
         frictionAir: 0.08,
         render: {
-          fillStyle: !leaderBall ? '#000000' : '#191919', // Only the first (leader) is black
-          strokeStyle: '#111111',
-          lineWidth: 3,
+          fillStyle: !leaderBall ? 'radial-gradient(circle, #08D9F2 0%, #25BDCB 50%, #E1D019 100%)' : '#191919',
+          strokeStyle: !leaderBall ? '#08D9F2' : '#111111',
+          lineWidth: !leaderBall ? 2 : 3,
         },
       });
       if (!leaderBall) {

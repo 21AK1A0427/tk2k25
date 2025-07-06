@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -91,4 +92,49 @@
   .animate-float-fast {
     animation: float 3s ease-in-out infinite;
   }
+}
+
+/* Sci-fi font style */
+.font-sci-fi {
+  font-family: 'Orbitron', sans-serif; /* Using Orbitron as an example sci-fi font */
+}
+
+/* Typing animation */
+.animate-typing {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  letter-spacing: .05em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+/* Responsive adjustments for typing animation if needed */
+@media (max-width: 768px) {
+  .animate-typing {
+    letter-spacing: .03em; /* Smaller letter spacing on smaller screens */
+    /* You might want to adjust animation duration or steps for smaller text */
+  }
+}
+
+/* CSS for no-scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

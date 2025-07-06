@@ -1,0 +1,577 @@
+/* AdminEvents.css - Styles for the Admin Events Management Page */
+
+.admin-events-container {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f0f0f; /* Darkest black for overall page background */
+  color: #e0e0e0; /* Light text for contrast */
+  border-radius: 8px;
+  /* Removed box-shadow from here, can be added to individual elements if needed for differentiation */
+  /* box-shadow: 0 4px 15px rgba(0, 255, 255, 0.1); */ 
+}
+
+/* Removed .admin-events-container h2 as title is now in AdminDashboard header */
+
+.event-steps-container {
+  margin-top: 20px;
+  background-color: #1a1a1a; /* Slightly lighter dark for step container */
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #003333; /* Dark cyan border for differentiation */
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.05), 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.step-content h3 {
+  color: #00ffff; /* Cyan subheading */
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  border-bottom: 2px solid #007777; /* Darker cyan border */
+  padding-bottom: 10px;
+}
+
+/* Card Lists */
+.category-card-list, .event-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center cards if they don't fill the row */
+}
+
+/* Base Card Styling */
+.category-card, .event-card {
+  background-color: #222; /* Darker card background */
+  border: 1px solid #00ffff; /* Cyan border */
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+.category-card:hover, .event-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 25px rgba(0, 255, 255, 0.5);
+}
+
+/* Specific card widths */
+.category-card {
+  flex-basis: calc(20% - 20px); /* 5 cards per row, accounting for gap */
+  max-width: calc(20% - 20px);
+}
+
+.event-card {
+  flex-basis: calc(25% - 20px); /* 4 cards per row, accounting for gap */
+  max-width: calc(25% - 20px);
+}
+
+.card-image {
+  width: 100%;
+  height: 120px; /* Adjust as needed */
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  border: 1px solid #007777;
+}
+
+.card-name {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #e0e0e0;
+  margin-top: 5px;
+}
+
+.card-date {
+  font-size: 0.9em;
+  color: #a0a0a0;
+}
+
+/* Event Details Styling */
+.event-details h3 {
+  font-size: 2em;
+  color: #00ffff;
+  margin-bottom: 20px;
+}
+
+.event-detail-content {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #007777;
+}
+
+.event-detail-image {
+  width: 200px; /* Adjust as needed */
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid #00ffff;
+}
+
+.event-info p {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.event-info p strong {
+  color: #00ffff;
+}
+
+/* Styles for the Event Actions section */
+.event-actions-container {
+  margin-top: 10px; /* Further reduced margin */
+  padding: 10px; /* Further reduced padding */
+  background-color: #18181b; /* Darker, slightly different background for the container */
+  border-radius: 10px;
+  border: 1px solid #005f5f; /* Darker cyan border */
+  box-shadow: 0 0 15px rgba(0, 80, 80, 0.3), inset 0 0 8px rgba(0, 0, 0, 0.3);
+  display: flex; /* Added for centering content */
+  flex-direction: column; /* Stack title and form */
+  align-items: center; /* Center content horizontally */
+}
+
+.event-actions-heading {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffff; /* Cyan heading */
+  font-size: 1.2em; /* Further reduced font size */
+  margin-bottom: 10px; /* Further reduced space below heading */
+  text-align: center;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+.event-actions-form {
+  width: 100%;
+  max-width: 320px; /* Significantly reduced max-width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-button-group {
+  display: flex;
+  align-items: stretch; /* Make items same height */
+  width: 100%;
+  background-color: #0a0a0a; /* Very dark background for the input group */
+  border-radius: 8px;
+  padding: 5px; /* Further reduced padding inside the group */
+  border: 1px solid #007777; /* Cyan border for the group */
+  box-shadow: 0 0 10px rgba(0, 120, 120, 0.4), inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+.event-code-input {
+  flex-grow: 1; /* Textarea takes available space */
+  background-color: #1c1c1c; /* Dark background for textarea */
+  color: #00ffff; /* Cyan text */
+  border: 1px solid #005555; /* Dark cyan border */
+  border-radius: 5px 0 0 5px; /* Rounded left corners */
+  padding: 5px 8px; /* Further reduced padding */
+  font-size: 0.85em; /* Reduced font size */
+  min-height: 30px; /* Further reduced min-height */
+  resize: vertical; /* Allow vertical resize */
+  box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.2);
+  margin-right: -1px; /* Overlap border with button */
+}
+
+.event-code-input::placeholder {
+  color: #007777; /* Dark cyan placeholder */
+  font-family: 'Orbitron', sans-serif;
+}
+
+.event-code-input:focus {
+  outline: none;
+  border-color: #00ffff; /* Bright cyan border on focus */
+  box-shadow: 0 0 10px #00ffff, inset 0 0 8px rgba(0, 255, 255, 0.3);
+}
+
+.event-action-button { /* This is the .submit-button.sci-fi-button.event-action-button */
+  border-radius: 0 5px 5px 0 !important; /* Rounded right corners, override general sci-fi button */
+  padding: 5px 10px !important; /* Further reduced padding */
+  font-size: 0.85em !important; /* Reduced font size */
+  height: auto; /* Let it match textarea height */
+  align-self: stretch; /* Ensure it stretches to group height */
+  margin-left: 0; /* Remove default margin from sci-fi button if any */
+  /* Ensure background and border are consistent with sci-fi theme but fit the group */
+  background: linear-gradient(145deg, #008888, #006666) !important; /* Slightly adjusted gradient */
+  border: 1px solid #00ffff !important;
+  border-left: none !important; /* Remove left border to blend with textarea */
+}
+
+.event-action-button:hover {
+  background: linear-gradient(145deg, #00ffff, #008888) !important;
+  color: #000 !important;
+}
+
+/* Typing animation cursor */
+.event-actions-heading .typing-cursor {
+  display: inline-block;
+  width: 2px; /* Adjust width as needed */
+  height: 1em; /* Match font size of heading */
+  background-color: #00ffff; /* Cursor color */
+  animation: blink 0.7s infinite;
+  margin-left: 1px; /* Small space after text */
+  vertical-align: baseline; /* Align with text */
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Buttons */
+.back-button, .submit-button, .start-over-button {
+  background-color: #007777; /* Dark cyan */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-right: 10px; /* Spacing for multiple buttons */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.back-button:hover, .submit-button:hover, .start-over-button:hover {
+  background-color: #00ffff; /* Lighter cyan on hover */
+  color: #1a1a1a;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.start-over-button {
+  display: block; /* Make it a block to center it or position it easily */
+  margin: 0 auto 20px auto; /* Center the button */
+  background-color: #ff4500; /* A contrasting color like orange-red */
+}
+
+.start-over-button:hover {
+  background-color: #ff6347; /* Lighter orange-red */
+  box-shadow: 0 0 10px #ff6347;
+}
+
+/* Sci-Fi Buttons */
+.sci-fi-button {
+  background: linear-gradient(145deg, #007777, #005555);
+  color: #e0e0e0;
+  border: 1px solid #00ffff;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.3), inset 0 0 5px rgba(0, 255, 255, 0.2);
+  margin-right: 10px;
+  margin-bottom: 10px; /* Added margin for spacing */
+}
+
+.sci-fi-button:hover {
+  background: linear-gradient(145deg, #00ffff, #007777);
+  color: #111;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), inset 0 0 10px rgba(0, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.sci-fi-button:active {
+  transform: translateY(0px);
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), inset 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Styling */
+.form-group {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #222; /* Darker than step container */
+  border-radius: 8px;
+  border: 1px solid #004444; /* Slightly different shade of cyan border */
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #00ffff;
+}
+
+.form-group input[type="text"] {
+  width: calc(100% - 22px); /* Account for padding and border */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #007777;
+  border-radius: 4px;
+  background-color: #333;
+  color: #e0e0e0;
+  font-size: 1em;
+}
+
+.form-group input[type="text"]::placeholder {
+  color: #888;
+}
+
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+/* Submission Status */
+.submission-status {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.submission-status.success {
+  background-color: rgba(0, 255, 0, 0.2); /* Greenish tint */
+  color: #00ff00;
+  border: 1px solid #00ff00;
+}
+
+.submission-status.error {
+  background-color: rgba(255, 0, 0, 0.2); /* Reddish tint */
+  color: #ff4444;
+  border: 1px solid #ff4444;
+}
+
+.error-message {
+  color: #ff4444;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Styles from previous response for Event Actions centering and sizing */
+.event-actions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontally center content */
+  margin-top: 30px; /* Increased space above */
+  padding: 20px;
+  width: 100%; /* Take full width to allow centering of its content */
+}
+
+.event-actions-heading {
+  font-size: 1.5rem; /* Larger heading */
+  color: #00bcd4; /* Teal color, adjust as needed */
+  margin-bottom: 20px;
+  text-align: center; /* Center the heading text */
+  width: 100%; /* Ensure it takes full width for centering */
+}
+
+.event-actions-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center form elements */
+  width: 100%;
+  max-width: 600px; /* Adjust max-width as needed for a "bigger" feel */
+  background-color: #2a2a2a; /* Darker background for the form area, adjust as needed */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.event-code-label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #00bcd4; /* Teal color for label */
+  font-size: 1.1rem;
+  align-self: flex-start; /* Align label to the start of the form */
+}
+
+.input-button-row {
+  display: flex; /* Arrange textarea and button in a row */
+  align-items: stretch; /* Stretch items to fill height */
+  width: 100%;
+  gap: 15px; /* Space between textarea and button */
+}
+
+.event-code-input {
+  flex-grow: 1; /* Allow textarea to take available space */
+  padding: 12px 15px; /* Larger padding */
+  border: 1px solid #007a8a; /* Teal border */
+  border-radius: 6px;
+  font-size: 1rem; /* Standard font size */
+  min-height: 80px; /* Taller textarea */
+  background-color: #1e1e1e; /* Darker input background - Sci-fi feel */
+  color: #00e5ff; /* Bright cyan text color - Sci-fi feel */
+  resize: vertical;
+  font-family: 'Orbitron', sans-serif; /* Sci-fi font, ensure it's imported or available */
+  box-shadow: inset 0 0 8px rgba(0, 229, 255, 0.3), 0 0 5px rgba(0, 229, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.event-code-input::placeholder {
+  color: #007a8a; /* Darker cyan for placeholder */
+  font-family: 'Orbitron', sans-serif;
+}
+
+.event-code-input:focus {
+  outline: none;
+  border-color: #00e5ff;
+  background-color: #242424;
+  box-shadow: inset 0 0 10px rgba(0, 229, 255, 0.5), 0 0 10px rgba(0, 229, 255, 0.4);
+  color: #ffffff;
+}
+
+.event-action-button.sci-fi-button {
+  padding: 12px 25px !important; 
+  font-size: 1rem !important; 
+  height: auto; /* Auto height to align with textarea content */
+  align-self: stretch; /* Stretch to match textarea height */
+  /* Ensure sci-fi styles from .sci-fi-button are applied or enhanced here */
+}
+
+/* General step content styling if needed */
+.step-content.event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center all content within the event-details step */
+}
+
+.step-content.event-details > h3 {
+    font-size: 2rem; /* Larger event title */
+    color: #00e5ff; /* Bright teal for event title */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #00e5ff;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+  .category-card {
+    flex-basis: calc(25% - 20px); /* 4 cards */
+    max-width: calc(25% - 20px);
+  }
+  .event-card {
+    flex-basis: calc(33.33% - 20px); /* 3 cards */
+    max-width: calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 992px) {
+  .category-card {
+    flex-basis: calc(33.33% - 20px); /* 3 cards */
+    max-width: calc(33.33% - 20px);
+  }
+  .event-card {
+    flex-basis: calc(50% - 20px); /* 2 cards */
+    max-width: calc(50% - 20px);
+  }
+  .event-detail-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .event-detail-image {
+    width: 80%;
+    max-width: 300px;
+  }
+  .event-actions-form {
+    max-width: 90%; /* Adjust form width for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-events-container {
+    padding: 15px;
+  }
+  .event-steps-container {
+    padding: 15px;
+  }
+  .step-content h3 {
+    font-size: 1.6em; /* Adjusted for mobile */
+  }
+  .category-card, .event-card {
+    flex-basis: calc(50% - 15px); /* 2 cards with smaller gap */
+    max-width: calc(50% - 15px);
+    padding: 10px;
+  }
+  .card-name {
+    font-size: 1em;
+  }
+  .card-image {
+    height: 100px;
+  }
+  .sci-fi-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+  .input-button-group {
+    flex-direction: column; /* Stack input and button on mobile */
+    gap: 10px;
+  }
+  .event-code-input, .event-action-button {
+    width: 100%;
+    border-radius: 5px !important; /* Reset border radius for stacked items */
+    margin-right: 0;
+  }
+  .event-code-input {
+    margin-bottom: 10px; /* Space between input and button when stacked */
+  }
+  .event-action-button {
+     border-left: 1px solid #00ffff !important; /* Add back left border when stacked */
+  }
+  .event-actions-container {
+    padding: 15px;
+  }
+  .event-actions-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .step-content h3 {
+    font-size: 1.4em;
+  }
+  .category-card, .event-card {
+    flex-basis: calc(100% - 10px); /* 1 card with smaller gap */
+    max-width: calc(100% - 10px);
+  }
+  .back-button, .submit-button, .start-over-button, .sci-fi-button {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 0; /* Remove right margin for full width buttons */
+  }
+  .event-detail-image {
+    width: 100%;
+  }
+  .event-actions-heading {
+    font-size: 1em;
+  }
+  .event-code-input {
+    font-size: 0.8em;
+    min-height: 25px;
+    padding: 4px 7px;
+  }
+  .event-action-button {
+    font-size: 0.8em !important;
+    padding: 4px 8px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .admin-events-container {
+    padding: 10px;
+  }
+  .event-steps-container {
+    padding: 10px;
+  }
+  .step-content h3 {
+    font-size: 1.2em;
+  }
+  .card-name {
+    font-size: 0.9em;
+  }
+  .card-image {
+    height: 80px;
+  }
+}
