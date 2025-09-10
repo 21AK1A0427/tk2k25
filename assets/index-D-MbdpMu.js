@@ -734,6 +734,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             height: 90vw !important;
             max-height: 500px !important;
             padding: clamp(0.5rem, 3vw, 1.5rem) !important;
+            margin: 2rem auto 2rem auto !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
           
           .center-text {
@@ -778,6 +782,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             height: 95vw !important;
             max-height: 380px !important;
             padding: clamp(0.5rem, 2vw, 1rem) !important;
+            margin: 4rem auto 2rem auto !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
           
           .center-text {
@@ -823,6 +831,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             height: 98vw !important;
             max-height: 320px !important;
             padding: 0.5rem !important;
+            margin: 4rem auto 2rem auto !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
           
           .center-text {
@@ -874,6 +886,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             max-width: 70vh !important;
             height: 70vh !important;
             max-height: 400px !important;
+            margin: 5rem auto 1rem auto !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
           
           .center-text {
